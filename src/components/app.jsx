@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Photo from './photo';
 import PhotoList from './photo_list';
 
-const API_KEY = '37dbdb15551ecb80020e667417abf25d';
+const API_KEY = '';
 
 class App extends Component {
   constructor(props) {
