@@ -8,8 +8,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // error: null,
-      // isLoaded: false,
       photos: [],
       selectedPhotoId: "4729234249",
       selectedPhotoServer: "1092",
@@ -64,22 +62,6 @@ class App extends Component {
         </div>
       </div>
     );
-    // const { error, isLoaded, photos } = this.state;
-    // if (error) {
-    //   return <div>Error: {error.message}</div>;
-    // } else if (!isLoaded) {
-    //   return <div>Loading...</div>;
-    // } else {
-    //   return (
-    //       <ul>
-    //         {photos.map(item => (
-    //           <li key={item.id}>
-    //             {item.secret} {item.owner}
-    //           </li>
-    //         ))}
-    //       </ul>
-    //   );
-    // }
   }
 }
 
