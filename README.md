@@ -1,3 +1,5 @@
+Simple flickr photo gallery based on Le Wagon exercises.
+
 # react-boilerplate
 
 Simple react starter with the following config:
