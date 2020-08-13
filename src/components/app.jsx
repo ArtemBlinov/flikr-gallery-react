@@ -8,10 +8,12 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
+      // error: null,
+      // isLoaded: false,
       photos: [],
-      selectedPhotoId: " "
+      selectedPhotoId: "4729234249",
+      selectedPhotoServer: "1092",
+      selectedPhotoSecret: "163df9899d"
     };
   }
 
@@ -24,19 +26,28 @@ class App extends Component {
             isLoaded: true,
             photos: result.photos.photo
           });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+
+          // const firstPhoto = result?.photos?.photo?.[0];
+      //     let firstPhoto;
+      //     if (result && result.photos && result.photos.photo) {
+      //       firstPhoto = result.photos.photo[0];
+      //       this.selectPhoto(firstPhoto.id, firstPhoto.server, firstPhoto.secret);
+      //     }
+      //   },
+      //   (error) => {
+      //     this.setState({
+      //       isLoaded: true,
+      //       error
+      //     });
         }
-      )
+      );
   }
 
-  selectPhoto = (id) => {
+  selectPhoto = (id, server, secret) => {
     this.setState({
-      selectedPhotoId: id
+      selectedPhotoId: id,
+      selectedPhotoServer: server,
+      selectedPhotoSecret: secret
     });
   }
 
@@ -45,19 +56,19 @@ class App extends Component {
       <div>
         <div className="left-scene">
           <div className="selected-photo">
-            <Photo id={this.state.selectedPhotoId} />
+            <Photo id={this.state.selectedPhotoId} server={this.state.selectedPhotoServer} secret={this.state.selectedPhotoSecret} key={this.state.selectedPhotoId} />
           </div>
         </div>
         <div className="right-scene">
-          <PhotoList photos={this.state.photos} selectPhotos={this.selectPhoto} />
+          <PhotoList photos={this.state.photos} selectPhoto={this.selectPhoto} />
         </div>
       </div>
     );
     // const { error, isLoaded, photos } = this.state;
     // if (error) {
-    //   return <div>Ошибка: {error.message}</div>;
+    //   return <div>Error: {error.message}</div>;
     // } else if (!isLoaded) {
-    //   return <div>Загрузка...</div>;
+    //   return <div>Loading...</div>;
     // } else {
     //   return (
     //       <ul>
